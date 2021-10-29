@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pethero/app/controllers/home_controller.dart';
 import 'package:pethero/app/views/home_page.dart';
-import 'package:pethero/app/views/menu_page.dart';
+import 'package:pethero/app/views/landing_page.dart';
 
-class Landingpage extends StatelessWidget {
+class Menupage extends StatelessWidget {
   final controller = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Landing Page"),
+        title: Text("Menu Page"),
       ),
 
       body: SafeArea(
@@ -60,15 +60,8 @@ class Landingpage extends StatelessWidget {
                 Container(
                   child: IconButton(
                       color: Colors.grey, 
-                      onPressed: () => Get.to(() =>Homepage()), 
+                      onPressed: () => Get.to(() =>Landingpage()), 
                       icon: Icon(Icons.arrow_back_rounded)
-                  ),
-                ),
-                Container(
-                  child: IconButton(
-                      color: Colors.grey, 
-                      onPressed: () => Get.to(() =>Menupage()), 
-                      icon: Icon(Icons.arrow_forward_rounded)
                   ),
                 ),
               ],
