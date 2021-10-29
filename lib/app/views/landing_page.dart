@@ -9,73 +9,100 @@ class Landingpage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Landing Page"),
-      ),
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.width;
 
-      body: SafeArea(
+    return Scaffold(
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/img/landing_page_img.png'),
+            fit: BoxFit.cover,
+          colorFilter: 
+          ColorFilter.mode(Colors.black.withOpacity(0.5), 
+          BlendMode.darken),
+          ),
+        ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Center(
-              child: Obx(
-                () => Text(
-                    '${controller.click.tap}',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 30),
+          children: <Widget>[
+            SizedBox(height: 150,),
+
+            Container(
+              height: 390,
+              child: Column(
+                children: [
+                RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: "pet hero ",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 66)
+                      ),
+                      WidgetSpan(
+                        child: Icon(Icons.favorite, size: 54, color: Colors.pink, semanticLabel: 'Text to announce in accessibility modes',),
+                        
+                      ),
+                    ],
                   ),
+                ),
+                ],
               ),
             ),
-            SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  child: IconButton(
-                      color: Colors.grey, 
-                      onPressed: () => controller.click.increment(), 
-                      icon: Icon(Icons.add
-                    )
-                  ),
-                ),
-                SizedBox(width: 10,),
-                Container(
-                  child: IconButton(
-                      color: Colors.grey, 
-                      onPressed: () => controller.click.decrement(), 
-                      icon: Icon(Icons.remove
-                    )
-                  ),
-                ),                
-
-              ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text('Olá, tudo bem?', style: TextStyle(
+                color: Colors.white,fontWeight: FontWeight.bold,fontSize: 25
+              ),),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  child: IconButton(
-                      color: Colors.grey, 
-                      onPressed: () => Get.to(() =>Homepage()), 
-                      icon: Icon(Icons.arrow_back_rounded)
-                  ),
+            Text(
+                'Vai viajar ou não quer que seu pet fique sozinho em casa durante o dia sem gastar energia? Conheça os serviços de hospedagem, creche e passeio!', 
+                style: TextStyle(
+                color: Colors.white,fontWeight: FontWeight.w500,fontSize: 16
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 90,
+            ),
+            Expanded(
+              child: Container(
+                width: width,
+                height: height,
+                decoration: new BoxDecoration(
+                  color: Color(0xFF434343),
                 ),
-                Container(
-                  child: IconButton(
-                      color: Colors.grey, 
-                      onPressed: () => Get.to(() =>Menupage()), 
-                      icon: Icon(Icons.arrow_forward_rounded)
-                  ),
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Wrap(
+                  spacing: 20.0,
+                  children: <Widget>[
+                        ElevatedButton(
+                          child: Text('Já tenho conta'),
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                              primary: Color(0xFF8A8A8A),
+                              padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                              textStyle: TextStyle(
+                              fontWeight: FontWeight.bold)),
+                        ),
+                        ElevatedButton(
+                          child: Text('Sou novo aqui'),
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                              primary: Color(0xFFF4506C),
+                              padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                              textStyle: TextStyle(
+                              fontWeight: FontWeight.bold)),
+                        ),
+                  ],
+              ),
                 ),
-              ],
+              ),
             )
           ],
         ),
-      ),
+      )
     );
   }
 }
