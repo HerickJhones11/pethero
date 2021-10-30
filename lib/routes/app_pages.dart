@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:pethero/app/views/home_page.dart';
 import 'package:pethero/app/views/landing_page.dart';
 import 'app_routes.dart';
 

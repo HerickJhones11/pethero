@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pethero/app/controllers/home_controller.dart';
-import 'package:pethero/app/views/home_page.dart';
-import 'package:pethero/app/views/menu_page.dart';
 
 class Landingpage extends StatelessWidget {
   final controller = Get.put(HomeController());
@@ -75,28 +73,30 @@ class Landingpage extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: Wrap(
-                  spacing: 20.0,
-                  children: <Widget>[
-                        ElevatedButton(
-                          child: Text('Já tenho conta'),
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                              primary: Color(0xFF8A8A8A),
-                              padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                              textStyle: TextStyle(
-                              fontWeight: FontWeight.bold)),
+                    spacing: 20.0,
+                    children: <Widget>[
+                      ElevatedButton(
+                        child: Text('Já tenho conta'),
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          primary: Color(0xFF8A8A8A),
+                          padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                          textStyle: TextStyle(
+                          fontWeight: FontWeight.bold)
                         ),
-                        ElevatedButton(
-                          child: Text('Sou novo aqui'),
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                              primary: Color(0xFFF4506C),
-                              padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                              textStyle: TextStyle(
-                              fontWeight: FontWeight.bold)),
+                      ),
+                      ElevatedButton(
+                        child: Text('Sou novo aqui'),
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          primary: Color(0xFFF4506C),
+                          padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                          textStyle: TextStyle(
+                          fontWeight: FontWeight.bold)
                         ),
-                  ],
-              ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             )
