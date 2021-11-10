@@ -3,7 +3,12 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pethero/app/controllers/home_controller.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
+final String logoPetHero = 'assets/img/pet_icon_plain.svg';
+final Widget logoSvg = SvgPicture.asset(
+  logoPetHero,
+);
 
 class Menupage extends StatelessWidget {
   final controller = Get.put(HomeController());
@@ -13,17 +18,24 @@ class Menupage extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
-
     return Scaffold(
-
       body: SafeArea(
           child: Container(
               decoration: new BoxDecoration(color: Colors.grey[800]),
               child: new Column(children: <Widget>[
                 //Logo Pet hero
                 Padding(
-                  padding: EdgeInsets.only(top: 0.074*height, bottom: 0.01*height),
-                  child: Container(
+                  padding: EdgeInsets.only(
+                      top: 0.074 * height, bottom: 0.01 * height),
+                  child: SvgPicture.asset(
+                    logoPetHero,
+                    semanticsLabel: 'Logo Pet hero',
+                    color: Colors.white,
+                    height: 150,
+                    width: 150,
+                  ),
+                ),
+                /*child: Container(
                     width: height*0.17,
                     height: height*0.17,
                     decoration:BoxDecoration(
@@ -31,9 +43,9 @@ class Menupage extends StatelessWidget {
                       color: Color(0xff999999)
                     ),
                     child: Icon(Icons.person, size: height*0.17 , color: Colors.white ,),
-                  ),
-                ),
-                Padding(
+                  ),*/
+
+                /*Padding(
                   padding: EdgeInsets.only(bottom: height*0.16),
                   child: Container(
                     height: height*0.037,
@@ -49,8 +61,8 @@ class Menupage extends StatelessWidget {
                       fontSize: height*0.02
                     ),),
                   ),
-                ),
-                
+                ),*/
+
                 //Linha horizontal
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
@@ -64,7 +76,7 @@ class Menupage extends StatelessWidget {
                 TextButton(
                   child: ListTile(
                     title:
-                    Text('Perfil', style: TextStyle(color: Colors.white)),
+                        Text('Perfil', style: TextStyle(color: Colors.white)),
                     leading: Icon(Icons.account_circle, color: Colors.white),
                     trailing: Icon(Icons.chevron_right, color: Colors.white),
                   ),
