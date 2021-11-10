@@ -5,13 +5,14 @@ import 'package:get/get.dart';
 import 'package:pethero/app/controllers/home_controller.dart';
 
 
-class Menupage extends StatelessWidget {
+class MenuPage extends StatelessWidget {
   final controller = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
 
 
     return Scaffold(
@@ -27,119 +28,72 @@ class Menupage extends StatelessWidget {
                     width: height*0.17,
                     height: height*0.17,
                     decoration:BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color(0xff999999)
+                      image: DecorationImage(
+                      image: AssetImage('assets/img/home.png'),
+                        fit: BoxFit.cover,
+                        
+                      )
                     ),
-                    child: Icon(Icons.person, size: height*0.17 , color: Colors.white ,),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: height*0.16),
-                  child: Container(
-                    height: height*0.037,
-                    width: width*0.26,
-                    decoration: BoxDecoration(
-                      color: Color(0xffF4506C),
-                      borderRadius: BorderRadius.all(Radius.circular(width*0.026))
-                    ),
-                    alignment: Alignment.center,
-                    child: Text('Minha Conta', style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700,
-                      fontSize: height*0.02
-                    ),),
-                  ),
-                ),
+        
+                ItemMenu( size: size, showTop: true, icon: Icon(Icons.account_circle, color: Colors.white), text: 'Perfil'),
+                ItemMenu( size: size, icon: Icon(Icons.grade, color: Colors.white), text: 'Ser um cuidador'),
+                ItemMenu( size: size, icon: Icon(Icons.play_arrow, color: Colors.white), text: 'Como funciona?'),
+                ItemMenu( size: size, icon: Icon(Icons.help_outline, color: Colors.white), text: 'Ajuda'),
                 
-                //Linha horizontal
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.0),
-                  child: Container(
-                    height: 1.0,
-                    width: double.infinity,
-                    color: Colors.white,
-                  ),
-                ),
-                //1ª opção do menu
-                TextButton(
-                  child: ListTile(
-                    title:
-                    Text('Perfil', style: TextStyle(color: Colors.white)),
-                    leading: Icon(Icons.account_circle, color: Colors.white),
-                    trailing: Icon(Icons.chevron_right, color: Colors.white),
-                  ),
-                  //função do 1º botão
-                  onPressed: () {},
-                ),
-                //Linha horizontal
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.0),
-                  child: Container(
-                    height: 1.0,
-                    width: double.infinity,
-                    color: Colors.white,
-                  ),
-                ),
-                //2ª opção do menu
-                TextButton(
-                  child: ListTile(
-                    title: Text('Ser um Cuidador',
-                        style: TextStyle(color: Colors.white)),
-                    leading: Icon(Icons.grade, color: Colors.white),
-                    trailing: Icon(Icons.chevron_right, color: Colors.white),
-                  ),
-                  //função do 2º botão
-                  onPressed: () {},
-                ),
-                //Linha horizontal
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.0),
-                  child: Container(
-                    height: 1.0,
-                    width: double.infinity,
-                    color: Colors.white,
-                  ),
-                ),
-                //3ª opção do menu
-                TextButton(
-                  child: ListTile(
-                    title: Text('Como funciona?',
-                        style: TextStyle(color: Colors.white)),
-                    leading: Icon(Icons.play_arrow, color: Colors.white),
-                    trailing: Icon(Icons.chevron_right, color: Colors.white),
-                  ),
-                  //função do 3º botão
-                  onPressed: () {},
-                ),
-                //Linha horizontal
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.0),
-                  child: Container(
-                    height: 1.0,
-                    width: double.infinity,
-                    color: Colors.white,
-                  ),
-                ),
-                //4ª opção do menu
-                TextButton(
-                  child: ListTile(
-                    title: Text('Ajuda', style: TextStyle(color: Colors.white)),
-                    leading: Icon(Icons.help_outline, color: Colors.white),
-                    trailing: Icon(Icons.chevron_right, color: Colors.white),
-                  ),
-                  //função do 4º botão
-                  onPressed: () {},
-                ),
-                //Linha horizontal
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.0),
-                  child: Container(
-                    height: 1.0,
-                    width: double.infinity,
-                    color: Colors.white,
-                  ),
-                ),
               ]))),
+    );
+  }
+}
+
+class ItemMenu extends StatelessWidget {
+  final Size size;
+  final Icon icon;
+  final String text;
+  final showTop;
+
+  const ItemMenu({
+    Key? key,
+    required this.size,
+    this.showTop = false, 
+    required this.icon,
+    required this.text, 
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        TextButton(
+          child: Column(
+            children: [
+              showTop ? 
+              Padding(
+                padding: EdgeInsets.only(bottom: size.height*0.018),
+                child: Container(
+                  height: 1.0,
+                  width: size.width,
+                  color: Colors.white,
+                ),
+              ) : SizedBox(height: 10,) ,
+              ListTile(
+                title:
+                Text(text, style: TextStyle(color: Colors.white)),
+                leading: icon,
+                trailing: Icon(Icons.chevron_right, color: Colors.white),
+              ),
+               Container(
+                 height: 1.0,
+                 width: size.width,
+                 color: Colors.white,
+               ),
+            ],
+          ),
+          //função do 1º botão
+          onPressed: () {},
+        ),
+      ],
     );
   }
 }

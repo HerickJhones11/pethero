@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pethero/app/controllers/home_controller.dart';
 
-class Landingpage extends StatelessWidget {
+class LandingPage extends StatelessWidget {
   final controller = Get.put(HomeController());
 
   @override
@@ -77,7 +77,9 @@ class Landingpage extends StatelessWidget {
                     children: <Widget>[
                       ElevatedButton(
                         child: Text('Já tenho conta'),
-                        onPressed: () {},
+                        onPressed: () {
+                           Navigator.pushNamed(context, 'home');
+                        },
                         style: ElevatedButton.styleFrom(
                           primary: Color(0xFF8A8A8A),
                           padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),

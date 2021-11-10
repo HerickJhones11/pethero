@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:pethero/app/views/home_page/home_page.dart';
 import 'package:pethero/app/views/landing_page.dart';
 import 'package:pethero/app/views/menu_page.dart';
 import 'app_routes.dart';
@@ -8,9 +9,17 @@ class AppPages {
 
   static final routes = [
     GetPage(
-      name: Routes.HOME, 
-      page: () => Menupage(),
+      name: Routes.LANDING, 
+      page: () => LandingPage(),
       // binding: InitialBinding(),
+    ),
+    GetPage(
+      name: Routes.HOME, 
+      page: () => HomePage(),
+    ),
+    GetPage(
+      name: Routes.MENU, 
+      page: () => MenuPage(),
     ),
   ];
 }
