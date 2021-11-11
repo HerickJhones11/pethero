@@ -122,6 +122,22 @@ class Menupage extends StatelessWidget {
                   ),
                 ),
               ]))),
+      // Barra de Navegação
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Inicio',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.menu),
+            label: 'Menu',
+          ),
+        ],
+        //currentIndex: _selectedIndex,
+        selectedItemColor: Colors.pink,
+        //onPressed: _onItemTapped,
+      ),
     );
   }
 }
