@@ -3,8 +3,12 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pethero/app/controllers/home_controller.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-
+final String logoPetHero = 'assets/img/pet_icon_plain.svg';
+final Widget logoSvg = SvgPicture.asset(
+  logoPetHero,
+);
 class MenuPage extends StatelessWidget {
   final controller = Get.put(HomeController());
 
@@ -23,24 +27,51 @@ class MenuPage extends StatelessWidget {
               child: new Column(children: <Widget>[
                 //Logo Pet hero
                 Padding(
-                  padding: EdgeInsets.only(top: 0.074*height, bottom: 0.01*height),
-                  child: Container(
-                    width: height*0.17,
-                    height: height*0.17,
-                    decoration:BoxDecoration(
-                      image: DecorationImage(
-                      image: AssetImage('assets/img/home.png'),
-                        fit: BoxFit.cover,
-                        
-                      )
-                    ),
+                  padding: EdgeInsets.only(
+                      top: 0.074 * height, bottom: 0.01 * height),
+                  child: SvgPicture.asset(
+                    logoPetHero,
+                    semanticsLabel: 'Logo Pet hero',
+                    color: Colors.white,
+                    height: 150,
+                    width: 150,
                   ),
                 ),
         
-                ItemMenu( size: size, showTop: true, icon: Icon(Icons.account_circle, color: Colors.white), text: 'Perfil'),
-                ItemMenu( size: size, icon: Icon(Icons.grade, color: Colors.white), text: 'Ser um cuidador'),
-                ItemMenu( size: size, icon: Icon(Icons.play_arrow, color: Colors.white), text: 'Como funciona?'),
-                ItemMenu( size: size, icon: Icon(Icons.help_outline, color: Colors.white), text: 'Ajuda'),
+                ItemMenu( 
+                  size: size,
+                  showTop: true,
+                  icon: Icon(Icons.account_circle,
+                  color: Colors.white),
+                  text: 'Perfil' ,
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/account');
+                  }
+                ),
+                ItemMenu(
+                  size: size,
+                  icon: Icon(Icons.grade, color: Colors.white),
+                  text: 'Ser um cuidador',
+                  onPressed: () {
+
+                  }
+                ),
+                ItemMenu(
+                  size: size,
+                  icon: Icon(Icons.play_arrow, color: Colors.white),
+                  text: 'Como funciona?',
+                  onPressed: () {
+
+                  }
+                ),
+                ItemMenu(
+                  size: size,
+                  icon: Icon(Icons.help_outline, color: Colors.white),
+                  text: 'Ajuda',
+                  onPressed: () {
+
+                  }
+                  ),
                 
               ]))),
     );
@@ -52,6 +83,7 @@ class ItemMenu extends StatelessWidget {
   final Icon icon;
   final String text;
   final showTop;
+  final VoidCallback onPressed;
 
   const ItemMenu({
     Key? key,
@@ -59,6 +91,7 @@ class ItemMenu extends StatelessWidget {
     this.showTop = false, 
     required this.icon,
     required this.text, 
+    required this.onPressed
   }) : super(key: key);
 
   @override
@@ -91,7 +124,7 @@ class ItemMenu extends StatelessWidget {
             ],
           ),
           //função do 1º botão
-          onPressed: () {},
+          onPressed: onPressed,
         ),
       ],
     );

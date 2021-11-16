@@ -78,7 +78,7 @@ class LandingPage extends StatelessWidget {
                       ElevatedButton(
                         child: Text('Já tenho conta'),
                         onPressed: () {
-                           Navigator.pushNamed(context, 'home');
+                            Navigator.pushNamed(context, '/home');
                         },
                         style: ElevatedButton.styleFrom(
                           primary: Color(0xFF8A8A8A),
@@ -89,7 +89,9 @@ class LandingPage extends StatelessWidget {
                       ),
                       ElevatedButton(
                         child: Text('Sou novo aqui'),
-                        onPressed: () {},
+                        onPressed: () {
+                            Navigator.pushNamed(context, '/account');
+                        },
                         style: ElevatedButton.styleFrom(
                           primary: Color(0xFFF4506C),
                           padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),

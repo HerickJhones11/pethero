@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:pethero/app/views/account_page.dart';
 import 'package:pethero/app/views/home_page/home_page.dart';
 import 'package:pethero/app/views/landing_page.dart';
 import 'package:pethero/app/views/menu_page.dart';
@@ -20,6 +21,10 @@ class AppPages {
     GetPage(
       name: Routes.MENU, 
       page: () => MenuPage(),
+    ),
+    GetPage(
+      name: Routes.ACCOUNT, 
+      page: () => AccountPage(),
     ),
   ];
 }
