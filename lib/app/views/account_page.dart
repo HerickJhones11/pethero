@@ -1,28 +1,14 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:pethero/app/views/menu_page.dart';
+import 'package:flutter/material.dart';
 
-import 'package:get/get.dart';
-import 'package:pethero/app/controllers/home_controller.dart';
-import 'package:pethero/app/views/landing_page.dart';
-
-
-void main(){
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: Home(),
-  ));
-}
-
-class Home extends StatefulWidget {
-  const Home({ Key? key }) : super(key: key);
+class Account extends StatefulWidget {
+  const Account({ Key? key }) : super(key: key);
 
   @override
-  _HomeState createState() => _HomeState();
+  _AccountState createState() => _AccountState();
 }
 
-class _HomeState extends State<Home> {
-  // Opções ao clicar na barra de navegação
+class _AccountState extends State<Account> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
@@ -41,37 +27,88 @@ class _HomeState extends State<Home> {
     setState(() {
       _selectedIndex = index;
     });
-  }
-
-
+  }  
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Colors.grey[900],
+      backgroundColor: Colors.grey[800],
+      appBar: AppBar(
+        // title: Text("Minha Conta"),  
+        // centerTitle: true,
+        backgroundColor: Colors.grey[800],
+        // actions: <Widget>[
+        //   IconButton(onPressed: () {}, 
+        //   icon: Icon(Icons.chevron_left))
+        // ],
 
-      body: Padding(padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+      ),
+
+      body: SafeArea(child: 
+      Padding(padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            // crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Divider(
-                height: 50.0,
-              ),
-              Icon(Icons.account_circle, size: 60.0, color: Colors.white,),
+              // Divider(
+              //   height: 30.0,
+              // ),
+              // Icon(Icons.account_circle, size: 60.0, color: Colors.white,),
               
-              Padding( padding: EdgeInsets.fromLTRB(150, 10, 150, 10),
-                child: RaisedButton(
-                  color: Colors.pink,
-                  child: const Text('Minha Conta', style: TextStyle(color: Colors.white, fontSize: 20.0, )),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-                  // padding: EdgeInsets.fromLTRB(30.0, 8.0, 30.0, 8.0),
-                  onPressed: () {},
+              // Padding( padding: EdgeInsets.fromLTRB(150, 10, 150, 10),
+              //   child: RaisedButton(
+              //     color: Colors.pink,
+              //     child: const Text('Minha Conta', style: TextStyle(color: Colors.white, fontSize: 20.0, )),
+              //     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+              //     // padding: EdgeInsets.fromLTRB(30.0, 8.0, 30.0, 8.0),
+              //     onPressed: () {},
+              //   ),
+              // ),
+              Padding(
+                  padding: EdgeInsets.only(top: 0.074*height, bottom: 0.01*height),
+                  child: Container(
+                    width: height*0.1,
+                    height: height*0.1,
+                    decoration:BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color(0xff999999)
+                    ),
+                    child: Icon(Icons.person, size: height*0.1 , color: Colors.white ,),
+                  ),
                 ),
-              ),
-              Divider(
-                height: 56.0,
-              ),
-
-              //Linha horizontal
+                Padding(
+                  padding: EdgeInsets.only(bottom: height*0.12),
+                  child: Container(
+                    height: height*0.03,
+                    width: width*0.26,
+                    decoration: BoxDecoration(
+                      color: Color(0xffF4506C),
+                      borderRadius: BorderRadius.all(Radius.circular(width*0.026))
+                    ),
+                    alignment: Alignment.center,
+                    child: Text('Minha Conta', style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                      fontSize: height*0.02
+                    ),),
+                  ),
+                ),
+              
+              // Divider(
+              //   height: 56.0,
+              // ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: <Widget>[
+              //     Padding(
+              //       padding: EdgeInsets.all(15.0),
+              //       child: TextButton(
+              //         child: Text("Pedidos", style: TextStyle(fontSize: 30.0, color: Colors.white), textAlign: TextAlign.left,),
+              //         onPressed: (){},   
+              //       ),    
+              //     ),
+              //   ],
+              // ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.0),
                 child: Container(
@@ -80,8 +117,7 @@ class _HomeState extends State<Home> {
                   color: Colors.white,
                   ),
                 ),
-            //CONFIGURAÇÕES DA CONTA
-              // Pedidos 
+              //1ª opção do menu
               TextButton(
                 child: ListTile(
                   title: 
@@ -89,10 +125,10 @@ class _HomeState extends State<Home> {
                   leading: Icon(Icons.description, color: Colors.white),
                   trailing: Icon(Icons.chevron_right, color: Colors.white),
                 ),
-                // função do primeiro botão
+                //função do 1º botão
                 onPressed: () {},
               ),
-              // Linha horizontal
+              //Linha horizontal
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.0),
                 child: Container(
@@ -101,17 +137,17 @@ class _HomeState extends State<Home> {
                   color: Colors.white,
                 ),
               ),
-              // Pagamentos
+              //2ª opção do menu
               TextButton(
                 child: ListTile(
                   title: Text('Pagamentos', style: TextStyle(color: Colors.white)),
                   leading: Icon(Icons.payment, color: Colors.white),
                   trailing: Icon(Icons.chevron_right, color: Colors.white),
                 ),
-                // Função do 2º botão
+                //função do 2º botão
                 onPressed: () {},
                   ),
-              // Linha horizontal
+              //Linha horizontal
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.0),
                 child: Container(
@@ -120,36 +156,29 @@ class _HomeState extends State<Home> {
                   color: Colors.white,
                 ),
               ),
-              // Editar Perfil
+              //3ª opção do menu
               TextButton(
                 child: ListTile(
                   title: Text('Editar Perfil', style: TextStyle(color: Colors.white)),
                   leading: Icon(Icons.manage_accounts, color: Colors.white),
                   trailing: Icon(Icons.chevron_right, color: Colors.white),
                 ),
-                // Função do 3º botão
+                //função do 3º botão
                 onPressed: () {},
               ),
-              // Linha horizontal
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10.0),
-                child: Container(
-                  height: 1.0,
-                  width: double.infinity,
-                  color: Colors.white,
-                ),
-              ),
-              // Sair da Conta
+              //Linha horizontal
+              LinhaHorizontal;
+              //4ª opção do menu
               TextButton(
                 child: ListTile(
                   title: Text('Sair', style: TextStyle(color: Colors.white)),
                   leading: Icon(Icons.logout, color: Colors.white),
                   trailing: Icon(Icons.chevron_right, color: Colors.white),
                 ),
-                // Função do 4º botão
+                //função do 4º botão
                 onPressed: () {},
               ),
-              // Linha horizontal
+              //Linha horizontal
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.0),
                 child: Container(
@@ -161,8 +190,8 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
+      ),
 
-      // Barra de Navegação
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -179,18 +208,17 @@ class _HomeState extends State<Home> {
         onTap: _onItemTapped,
       ),
       
-
+    );
+  }
+  LinhaHorizontal(){
+    Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10.0),
+      child: Container(
+        height: 1.0,
+        width: double.infinity,
+        color: Colors.white,
+      ),
     );
   }
 }
 
-// void linhaHorizontal (){
-//   Padding(
-//     padding: EdgeInsets.symmetric(horizontal: 10.0),
-//       child: Container(
-//         height: 1.0,
-//         width: double.infinity,
-//         color: Colors.white,
-//       ),
-//   );
-}
