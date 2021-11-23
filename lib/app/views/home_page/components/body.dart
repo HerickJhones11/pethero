@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pethero/app/views/landing_page.dart';
 
 import 'profile_menu.dart';
 
@@ -19,7 +20,9 @@ class Body extends StatelessWidget {
             colorCircle: Color(0xff9900F6),
             description: "Passar a noite na casa do Herói",
             size: size.width*0.96,
-            press: () {},
+            press: () {
+              Navigator.pushNamed(context, '/Hospedagem');
+            },
           ),
           ProfileMenu(
             text: "Creche",
