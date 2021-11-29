@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import 'package:pethero/app/controllers/home_controller.dart';
-import 'package:pethero/app/views/landing_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 
@@ -11,18 +8,22 @@ final Widget logoSvg = SvgPicture.asset(
   logoPetHero,
 );
 
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({ Key? key }) : super(key: key);
 
+  @override
+  _RegisterPageState createState() => _RegisterPageState();
+}
 
-
+class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-
     return Scaffold(
-
-          child: SingleChildScrollView(
+      body: SingleChildScrollView(
             child: Container(
+                height: height,
                 decoration: new BoxDecoration(color: Colors.grey[800]),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -127,7 +128,7 @@ final Widget logoSvg = SvgPicture.asset(
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 50, vertical: 50),
-                        child:ElevatedButton(
+                        child: ElevatedButton(
                           child: Padding(
                             padding: EdgeInsets.symmetric( vertical: 10),
                             child: Text("Próximo",
@@ -140,11 +141,15 @@ final Widget logoSvg = SvgPicture.asset(
                           style: ElevatedButton.styleFrom(
                             primary: Color(0xFF4F4506C),
                           ),
+                          onPressed: (){
+                            Navigator.pushNamed(context, 'confirm_register');
+                          },
 
                         ),
                       )
                     ]))
-          )),
+          )
+      
     );
   }
 }
