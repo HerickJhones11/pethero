@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'package:pethero/app/controllers/home_controller.dart';
 import 'package:pethero/app/views/landing_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 
 final String logoPetHero = 'assets/img/pet_icon_plain.svg';
 final Widget logoSvg = SvgPicture.asset(
@@ -10,8 +12,7 @@ final Widget logoSvg = SvgPicture.asset(
 );
 
 
-class Registerpage extends StatelessWidget {
-  const Registerpage({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +21,6 @@ class Registerpage extends StatelessWidget {
 
     return Scaffold(
 
-      body: Container(
-          width: width,
-          height: height,
-          color: Colors.grey[800],
           child: SingleChildScrollView(
             child: Container(
                 decoration: new BoxDecoration(color: Colors.grey[800]),
@@ -143,7 +140,7 @@ class Registerpage extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             primary: Color(0xFF4F4506C),
                           ),
-                          onPressed: (){},
+
                         ),
                       )
                     ]))

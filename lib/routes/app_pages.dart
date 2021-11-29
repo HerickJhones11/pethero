@@ -1,11 +1,8 @@
 import 'package:get/get.dart';
-import 'app_routes.dart';
-import 'package:pethero/app/views/splashScreen_page.dart';
+
 import 'package:pethero/app/views/landing_page.dart';
 import 'package:pethero/app/views/home_page/home_page.dart';
 import 'package:pethero/app/views/menu_page.dart';
-import 'package:pethero/app/views/hospedagem_page.dart';
-import 'package:pethero/app/views/account_page.dart';
 
 
 class AppPages {
@@ -37,6 +34,22 @@ class AppPages {
     GetPage(
       name: Routes.HOSPEDAGEM, 
       page: () => Hospedagem(),
+    ),
+    GetPage(
+      name: Routes.REGISTER, 
+      page: () => RegisterPage(),
+    ),
+    GetPage(
+      name: Routes.CONFIRM_PASSWORD, 
+      page: () => ConfirmPasswordPage(),
+    ),
+    GetPage(
+      name: Routes.CONFIRM_PASSWORD_UPDATED, 
+      page: () => ConfirmPasswordUpdatePage(),
+    ),
+        GetPage(
+      name: Routes.CONFIRM_REGISTER, 
+      page: () => ConfirmRegister(),
     ),
   ];
 }
