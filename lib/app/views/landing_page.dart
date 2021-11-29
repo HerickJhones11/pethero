@@ -90,7 +90,7 @@ class LandingPage extends StatelessWidget {
                       ElevatedButton(
                         child: Text('Sou novo aqui'),
                         onPressed: () {
-                            Navigator.pushNamed(context, '/account');
+                            Navigator.pushNamed(context, '/register');
                         },
                         style: ElevatedButton.styleFrom(
                           primary: Color(0xFFF4506C),
