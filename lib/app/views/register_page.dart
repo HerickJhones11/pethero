@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pethero/app/components/coustom_bottom_nav_bar.dart';
+
 import 'package:pethero/app/controllers/home_controller.dart';
 import 'package:pethero/app/views/landing_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../enums.dart';
 
 final String logoPetHero = 'assets/img/pet_icon_plain.svg';
 final Widget logoSvg = SvgPicture.asset(
@@ -13,8 +12,7 @@ final Widget logoSvg = SvgPicture.asset(
 );
 
 
-class RegisterPage extends StatelessWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +20,7 @@ class RegisterPage extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-     bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.profile),
-      body: Container(
+
           child: SingleChildScrollView(
             child: Container(
                 decoration: new BoxDecoration(color: Colors.grey[800]),
@@ -49,6 +46,7 @@ class RegisterPage extends StatelessWidget {
                           alignment: Alignment.center,
                         ),
                       ),
+
                       Padding(
                           padding: EdgeInsets.only(top: 0.5),
                           child: Text(
@@ -58,6 +56,7 @@ class RegisterPage extends StatelessWidget {
                                 color: Colors.white,
                                 fontSize: 25
                             ) ,)
+
                       ),
                       Padding(
                         padding: EdgeInsets.only(right: 50, left: 50, top: 30),
@@ -75,6 +74,7 @@ class RegisterPage extends StatelessWidget {
                           ),
                         ),
                       ),
+
                       Padding(
                         padding: EdgeInsets.only(right: 50, left: 50, top: 11),
                         child: TextFormField(
@@ -91,6 +91,7 @@ class RegisterPage extends StatelessWidget {
                           ),
                         ),
                       ),
+
                       Padding(
                         padding: EdgeInsets.only(right: 50, left: 50, top: 11),
                         child: TextFormField(
@@ -139,9 +140,7 @@ class RegisterPage extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             primary: Color(0xFF4F4506C),
                           ),
-                          onPressed: (){
-                            Navigator.pushNamed(context, '/confirm_register');
-                          },
+
                         ),
                       )
                     ]))
