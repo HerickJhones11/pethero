@@ -9,4 +9,6 @@ abstract class Routes {
   static const CONFIRM_PASSWORD = '/confirm_password';
   static const CONFIRM_PASSWORD_UPDATED = '/confirm_password_updated';
   static const CONFIRM_REGISTER = '/confirm_register';
+  static const LOGIN = '/login';
+  static const SOCIAL_LOGIN = '/social_login';
 }
