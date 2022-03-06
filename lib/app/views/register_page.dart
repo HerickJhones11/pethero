@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pethero/app/models/user.dart';
 
 
 final String logoPetHero = 'assets/img/pet_icon_plain.svg';
@@ -16,10 +17,15 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  @override
+  TextEditingController name = TextEditingController();
+  TextEditingController email = TextEditingController(text:true == false ? 'pauloherick@gmail.com' : '');
+  TextEditingController cpf = TextEditingController();
+  TextEditingController tel = TextEditingController();
+  
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: SingleChildScrollView(
             child: Container(
@@ -62,6 +68,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       Padding(
                         padding: EdgeInsets.only(right: 50, left: 50, top: 30),
                         child: TextFormField(
+                          controller: name,
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
                             fillColor: Colors.white, filled: true,
@@ -79,6 +86,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       Padding(
                         padding: EdgeInsets.only(right: 50, left: 50, top: 11),
                         child: TextFormField(
+                          controller: email,
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
                             fillColor: Colors.white, filled: true,
@@ -96,6 +104,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       Padding(
                         padding: EdgeInsets.only(right: 50, left: 50, top: 11),
                         child: TextFormField(
+                          controller: cpf,
                           keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             fillColor: Colors.white, filled: true,
@@ -113,6 +122,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       Padding(
                         padding: EdgeInsets.only(right: 50, left: 50, top: 11),
                         child: TextFormField(
+                          controller: tel,
                           keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             fillColor: Colors.white, filled: true,
@@ -141,8 +151,15 @@ class _RegisterPageState extends State<RegisterPage> {
                           style: ElevatedButton.styleFrom(
                             primary: Color(0xFF4F4506C),
                           ),
-                          onPressed: (){
-                            Navigator.pushNamed(context, 'confirm_register');
+                          onPressed: () async {
+                            var user = User(
+                              email: email.text,
+                              name : name.text,
+                              cpf : cpf.text,
+                              tel : tel.text
+                            );
+          
+                            Navigator.pushNamed(context, 'confirm_password', arguments: {'user':user});
                           },
 
                         ),

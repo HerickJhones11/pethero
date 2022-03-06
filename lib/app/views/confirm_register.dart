@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pethero/app/components/coustom_bottom_nav_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pethero/app/components/show_alert.dart';
+import 'package:pethero/app/controllers/confirm_register_controller.dart';
+import 'package:pethero/app/services/email.dart';
 
 import '../enums.dart';
 
@@ -10,11 +13,40 @@ final Widget logoSvg = SvgPicture.asset(
 );
 
 
-class ConfirmRegister extends StatelessWidget {
-  const ConfirmRegister({Key? key}) : super(key: key);
+TextEditingController userCode = TextEditingController(text: '');
+
+class ConfirmRegister extends StatefulWidget {
+  ConfirmRegister({Key? key}) : super(key: key);
 
   @override
+  State<ConfirmRegister> createState() => _ConfirmRegisterState();
+}
+
+class _ConfirmRegisterState extends State<ConfirmRegister> {
+  var controller;
+
+  var service = Email();
+
+  sendEmail(context) async {
+    final arguments = ModalRoute.of(context)!.settings.arguments as Map;
+    controller = arguments['controller'];
+    var email = controller.user.email;
+    var name = controller.user.name;
+    service.sendMessage(email, name );
+  }
+
+  initState(){
+    super.initState();
+    WidgetsBinding.instance!
+      .addPostFrameCallback((_) { 
+        print('teste');
+        sendEmail(context);
+      
+      });
+  }
+
   Widget build(BuildContext context) {
+    var confirmRegisterController = ConfirmRegisterController();
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
@@ -75,6 +107,7 @@ class ConfirmRegister extends StatelessWidget {
                             child: Padding(
                               padding: const EdgeInsets.only(left: 30,right: 30),
                               child: TextField(
+                                controller: userCode,
                                 style: TextStyle(
                                   fontSize: 28,
                                   height: 1,
@@ -100,13 +133,25 @@ class ConfirmRegister extends StatelessWidget {
                             primary: Color(0xFF4F4506C),
                           ),
                           onPressed: (){
-                            Navigator.pushNamed(context, '/confirm_register');
+                            confirmRegisterController.validUser();
+                            return;
+
+                            confirmRegisterController.verifyCode(userCode.text).then((result) {
+                              var message = 'Erro ao confirmar usuário';
+                              var redirectUser = false;
+                              if(result == true){
+                                message = 'Usuário criado com sucesso';
+                                confirmRegisterController.validUser();
+                                redirectUser = true;
+                              }
+                              showAlert(context,message, redirectUser: redirectUser);
+                            });
                           },
                         ),
                       ),
                       GestureDetector(
                         onTap: () {
-                          print('teste');
+                          // sendEmail(controller.user.email, controller.user.name);
                         },
                         child: Padding(
                             padding: EdgeInsets.only(top: height*0.044),
@@ -124,4 +169,6 @@ class ConfirmRegister extends StatelessWidget {
           )),
     );
   }
+
+ 
 }

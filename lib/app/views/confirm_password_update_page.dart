@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart' show Alignment, BorderRadius, BoxDecoration, BuildContext, Color, Colors, Column, Container, CrossAxisAlignment, EdgeInsets, ElevatedButton, InputDecoration, Key, MediaQuery, OutlineInputBorder, Padding, Scaffold, SingleChildScrollView, StatelessWidget, Text, TextAlign, TextFormField, TextInputType, TextStyle, Widget;
+import 'package:flutter/material.dart' show Alignment, BorderRadius, BoxDecoration, BuildContext, Color, Colors, Column, Container, CrossAxisAlignment, EdgeInsets, ElevatedButton, InputDecoration, Key, MediaQuery, Navigator, OutlineInputBorder, Padding, Scaffold, SingleChildScrollView, StatelessWidget, Text, TextAlign, TextFormField, TextInputType, TextStyle, Widget;
 import 'package:flutter_svg/flutter_svg.dart';
 
 final String logoPetHero = 'assets/img/pet_icon_plain.svg';
@@ -11,6 +11,7 @@ class ConfirmPasswordUpdatePage extends StatelessWidget {
   const ConfirmPasswordUpdatePage({Key? key}) : super(key: key);
 
   @override
+  
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
@@ -20,6 +21,7 @@ class ConfirmPasswordUpdatePage extends StatelessWidget {
       body: Container(
           child: SingleChildScrollView(
               child: Container(
+                  height: height,
                   decoration: new BoxDecoration(color: Colors.grey[800]),
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -103,7 +105,9 @@ class ConfirmPasswordUpdatePage extends StatelessWidget {
                             style: ElevatedButton.styleFrom(
                               primary: Color(0xFF4F4506C),
                             ),
-                            onPressed: (){},
+                            onPressed: (){
+                                Navigator.pushNamed(context, '/confirm_register');
+                            },
                           ),
                         )
                       ]))

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pethero/app/components/show_alert.dart';
 import 'package:pethero/app/controllers/home_controller.dart';
+import 'package:pethero/app/controllers/user_controller.dart';
+import 'package:pethero/app/models/user.dart';
 import 'package:pethero/app/views/landing_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -11,18 +14,35 @@ final Widget logoSvg = SvgPicture.asset(
 
 
 class ConfirmPasswordPage extends StatelessWidget {
-  const ConfirmPasswordPage({Key? key}) : super(key: key);
+  ConfirmPasswordPage({Key? key}) : super(key: key);
 
-  @override
+  
+
+  var controller = UserController(
+
+  );
+
+
   Widget build(BuildContext context) {
+
+    final arguments = ModalRoute.of(context)!.settings.arguments as Map;
+    var user = User(
+      email: arguments['user'].email,
+      cpf: arguments['user'].cpf,
+      tel: arguments['user'].tel,
+      name: arguments['user'].name
+    );
+
+    controller.user = user;
+
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-
       body: Container(
           child: SingleChildScrollView(
               child: Container(
+                  height: height,
                   decoration: new BoxDecoration(color: Colors.grey[800]),
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -61,6 +81,8 @@ class ConfirmPasswordPage extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.only(right: 50, left: 50, top: 30),
                           child: TextFormField(
+                            controller: controller.password,
+                            obscureText: true,
                             keyboardType: TextInputType.text,
                             decoration: InputDecoration(
                               fillColor: Colors.white, filled: true,
@@ -78,7 +100,9 @@ class ConfirmPasswordPage extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.only(right: 50, left: 50, top: 11),
                           child: TextFormField(
+                            controller: controller.confirmPassword,
                             keyboardType: TextInputType.text,
+                            obscureText: true,
                             decoration: InputDecoration(
                               fillColor: Colors.white, filled: true,
                               focusedBorder:OutlineInputBorder(
@@ -107,7 +131,12 @@ class ConfirmPasswordPage extends StatelessWidget {
                               primary: Color(0xFF4F4506C),
                             ),
                             onPressed: (){
-                              Navigator.pushNamed(context, '/confirm_password_updated');
+                              if( controller.password.text == controller.confirmPassword.text){
+                                controller.create(context);
+                                Navigator.pushNamed(context, '/confirm_register',arguments: {'controller' : controller});
+                              }else{
+                                showAlert(context, 'Senha incorreta', redirectUser: false);
+                              }
                             },
                           ),
                         )

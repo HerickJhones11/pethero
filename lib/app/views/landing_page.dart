@@ -61,7 +61,7 @@ class LandingPage extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(
-              height: 90,
+              height: 40,
             ),
             Expanded(
               child: Container(
@@ -72,19 +72,22 @@ class LandingPage extends StatelessWidget {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
-                  child: Wrap(
-                    spacing: 20.0,
+                  child: Row(
+
                     children: <Widget>[
-                      ElevatedButton(
-                        child: Text('Já tenho conta'),
-                        onPressed: () {
-                            Navigator.pushNamed(context, '/home');
-                        },
-                        style: ElevatedButton.styleFrom(
-                          primary: Color(0xFF8A8A8A),
-                          padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                          textStyle: TextStyle(
-                          fontWeight: FontWeight.bold)
+                      Padding(
+                        padding: const EdgeInsets.only(right: 24),
+                        child: ElevatedButton(
+                          child: Text('Já tenho conta'),
+                          onPressed: () {
+                              Navigator.pushNamed(context, '/login');
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Color(0xFF8A8A8A),
+                            padding: EdgeInsets.symmetric(horizontal: 30/*50*/, vertical: 20),
+                            textStyle: TextStyle(
+                            fontWeight: FontWeight.bold)
+                          ),
                         ),
                       ),
                       ElevatedButton(

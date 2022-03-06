@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pethero/app/views/landing_page.dart';
 
 import 'profile_menu.dart';
 
@@ -21,7 +20,7 @@ class Body extends StatelessWidget {
             description: "Passar a noite na casa do Herói",
             size: size.width*0.96,
             press: () {
-              Navigator.pushNamed(context, '/Hospedagem');
+              Navigator.pushNamed(context, '/products');
             },
           ),
           ProfileMenu(

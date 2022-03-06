@@ -1,6 +1,5 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:pethero/app/views/home_page/home_page.dart';
 
 class Hospedagem extends StatefulWidget {
   const Hospedagem({ Key? key }) : super(key: key);
@@ -39,138 +38,141 @@ class _HospedagemState extends State<Hospedagem> {
         backgroundColor: Colors.grey[800],
       ),
 
-      body: Padding(padding: EdgeInsets.fromLTRB(5.0, 4.0, 5.0, 4.0),
-        child: Column(
-          children: <Widget>[
-            // Logo PetHero
-            Image.asset("img/logo_pethero.jpg", height: 125.0,),
-            // Icon(Icons.person),
-            
-            // Texto Central
-            Text("Onde é o endereço do Pet?", 
-              textAlign: TextAlign.center, 
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0,
-                color: Colors.white),
-            ),
-            
-            Padding(padding: EdgeInsets.all(10.0),
-            child:
+      body: SingleChildScrollView(
+        child: Padding(padding: EdgeInsets.fromLTRB(5.0, 4.0, 5.0, 4.0),
+          child: Column(
+            children: <Widget>[
+              // Logo PetHero
 
-              // Campos de Texto
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  color: Colors.grey[850],
-                ),
-                child: Padding(padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
-                  child: Column(
-                    children: <Widget>[
-
-                      Padding(padding: EdgeInsets.fromLTRB(5.0, 4.0, 5.0, 4.0),
-                        child: TextField(
-                          cursorColor: Colors.grey,
-                          style: TextStyle(color: Colors.grey[800]),
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.search, color: Colors.grey[800],),
-                            fillColor: Colors.grey, filled: true,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(13.0),
-                              borderSide: BorderSide(color: Colors.grey),
-                              
-                            ),  
-                            hintText: "Buscar Endereço",
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(13.0) 
-                            ),
-                          ),
-                        ),
-                      ), 
-
-                      Padding(padding: EdgeInsets.fromLTRB(5.0, 4.0, 5.0, 4.0),
-                        child: TextField(
-                          cursorColor: Colors.grey,
-                          keyboardType: TextInputType.text,
-                          style: TextStyle(color: Colors.grey[800]),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white, filled: true,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(13.0),
-                              borderSide: BorderSide(color: Colors.grey),
-                            ),  
-                            hintText: "Casa",
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(13.0) 
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      Padding(padding: EdgeInsets.fromLTRB(5.0, 4.0, 5.0, 4.0),
-                        child: TextField(
-                          cursorColor: Colors.grey,
-                          style: TextStyle(color: Colors.grey[800]),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white, filled: true,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(13.0),
-                              borderSide: BorderSide(color: Colors.grey),
-                            ),  
-                            hintText: "Trabalho",
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(13.0) 
-                            ),
-                          ),
-                        ),
-                      ),
-                      
-                      Padding(padding: EdgeInsets.fromLTRB(5.0, 4.0, 5.0, 4.0),
-                        child: TextField(
-                          cursorColor: Colors.grey,
-                          style: TextStyle(color: Colors.grey[800]),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white, filled: true,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(13.0),
-                              borderSide: BorderSide(color: Colors.grey),
-                            ),  
-                            hintText: "Favorito",
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(13.0) 
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
+              Image.asset("assets/img/logo_pethero.jpg", height: 125.0,),
+              // Icon(Icons.person),
+              
+              // Texto Central
+              Text("Onde é o endereço do Pet?", 
+                textAlign: TextAlign.center, 
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0,
+                  color: Colors.white),
               ),
-            ),
+              
+              Padding(padding: EdgeInsets.all(10.0),
+              child:
 
-            Padding(
-              padding: EdgeInsets.all(10.0),
-              child: SizedBox(
-                width: 312.0,
-                height: 32.0,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Color(0xffF4506C)),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0)
-                      ),
+                // Campos de Texto
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Colors.grey[850],
+                  ),
+                  child: Padding(padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
+                    child: Column(
+                      children: <Widget>[
+
+                        Padding(padding: EdgeInsets.fromLTRB(5.0, 4.0, 5.0, 4.0),
+                          child: TextField(
+                            cursorColor: Colors.grey,
+                            style: TextStyle(color: Colors.grey[800]),
+                            decoration: InputDecoration(
+                              prefixIcon: Icon(Icons.search, color: Colors.grey[800],),
+                              fillColor: Colors.grey, filled: true,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(13.0),
+                                borderSide: BorderSide(color: Colors.grey),
+                                
+                              ),  
+                              hintText: "Buscar Endereço",
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.grey),
+                                borderRadius: BorderRadius.circular(13.0) 
+                              ),
+                            ),
+                          ),
+                        ), 
+
+                        Padding(padding: EdgeInsets.fromLTRB(5.0, 4.0, 5.0, 4.0),
+                          child: TextField(
+                            cursorColor: Colors.grey,
+                            keyboardType: TextInputType.text,
+                            style: TextStyle(color: Colors.grey[800]),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white, filled: true,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(13.0),
+                                borderSide: BorderSide(color: Colors.grey),
+                              ),  
+                              hintText: "Casa",
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.grey),
+                                borderRadius: BorderRadius.circular(13.0) 
+                              ),
+                            ),
+                          ),
+                        ),
+
+                        Padding(padding: EdgeInsets.fromLTRB(5.0, 4.0, 5.0, 4.0),
+                          child: TextField(
+                            cursorColor: Colors.grey,
+                            style: TextStyle(color: Colors.grey[800]),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white, filled: true,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(13.0),
+                                borderSide: BorderSide(color: Colors.grey),
+                              ),  
+                              hintText: "Trabalho",
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.grey),
+                                borderRadius: BorderRadius.circular(13.0) 
+                              ),
+                            ),
+                          ),
+                        ),
+                        
+                        Padding(padding: EdgeInsets.fromLTRB(5.0, 4.0, 5.0, 4.0),
+                          child: TextField(
+                            cursorColor: Colors.grey,
+                            style: TextStyle(color: Colors.grey[800]),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white, filled: true,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(13.0),
+                                borderSide: BorderSide(color: Colors.grey),
+                              ),  
+                              hintText: "Favorito",
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.grey),
+                                borderRadius: BorderRadius.circular(13.0) 
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                   ),
-                  child: Text('Salvar', style: TextStyle(color: Colors.white, fontSize: 16.0, ),),
-                  onPressed: (){}, 
                 ),
               ),
-            )
-            
-          ],
+
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: SizedBox(
+                  width: 312.0,
+                  height: 32.0,
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Color(0xffF4506C)),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0)
+                        ),
+                      ),
+                    ),
+                    child: Text('Salvar', style: TextStyle(color: Colors.white, fontSize: 16.0, ),),
+                    onPressed: (){}, 
+                  ),
+                ),
+              )
+              
+            ],
+          ),
         ),
       ),
 

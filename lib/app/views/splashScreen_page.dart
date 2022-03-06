@@ -27,7 +27,7 @@ class _SplashState extends State<Splash> {
     return AnimatedSplashScreen.withScreenFunction(
       duration: 3500,
       // splash: Image.asset('img/pethero_logo.jpg',),
-      splash: Image.asset('img/pethero_logo.jpg', height: 300.0, width: 300.0),
+      splash: Image.asset('assets/img/pethero_logo.jpg', height: 300.0, width: 300.0),
       // splashIconSize: double.maxFinite,
       screenFunction: () async {
         return LandingPage();

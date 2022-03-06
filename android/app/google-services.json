@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "991242786158",
+    "project_id": "pethero-a8c24",
+    "storage_bucket": "pethero-a8c24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:991242786158:android:378a84b2cc6fcef359dd7f",
+        "android_client_info": {
+          "package_name": "com.pethero.pethero"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "991242786158-21jimv2r5i05g28qs339iqsm48nshlup.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pethero.pethero",
+            "certificate_hash": "128d793440b2ca2ba583a27d087a18ebb5e99bee"
+          }
+        },
+        {
+          "client_id": "991242786158-p05iursfnprpartku60dqgf11fkvpa56.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYIkm-BxEzLBHWOvK7Wqw_ajx2TJnJafg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "991242786158-p05iursfnprpartku60dqgf11fkvpa56.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

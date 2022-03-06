@@ -9,6 +9,7 @@ class HomePage extends StatelessWidget {
   static String routeName = "/profile";
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Color(0xff434343),
       body: Body(),
